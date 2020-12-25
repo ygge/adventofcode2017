@@ -30,6 +30,10 @@ public class Util {
         return strings.get(0);
     }
 
+    public static int readInt() {
+        return Integer.parseInt(readString());
+    }
+
     public static List<String> readStrings() {
         return readFile(Function.identity());
     }
