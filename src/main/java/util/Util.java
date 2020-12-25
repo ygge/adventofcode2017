@@ -42,6 +42,18 @@ public class Util {
         return readFile(Long::parseLong);
     }
 
+    public static <T> List<T> read(Function<String, T> parser) {
+        return readFile(parser);
+    }
+
+    public static List<List<Integer>> readIntLists() {
+        return readIntLists(" ");
+    }
+
+    public static List<List<Integer>> readIntLists(String separator) {
+        return readFile(str -> Arrays.stream(str.split(separator)).map(Integer::parseInt).collect(Collectors.toList()));
+    }
+
     public static char[][] readBoard() {
         var content = readFile(String::toCharArray);
         char[][] board = new char[content.size()][];
